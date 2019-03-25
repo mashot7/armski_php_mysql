@@ -1,18 +1,20 @@
 <?php
 
-require_once 'src/include/connection.php';
+require_once '../src/include/connection.php';
 mb_internal_encoding('utf-8');
-if (isset($_GET['pages']) && file_exists('src/main-pages/' . $_GET['pages'] . ".php")) {
+if (isset($_GET['pages']) && file_exists('src/main-pages/' . $_GET['pages'] . '.php')) {
   $pages = $_GET['pages'];
 } else {
   $pages = 'home';
 }
 
+// ------------------------------------------------- TOUR PAGE
 if ($pages == 'tour-page') {
+
   // get id
   $tourId = $_GET['tour-id'];
   // get data
-  $sql = "SELECT * FROM `tours` WHERE `id`='$tourId'";
+  $sql = 'SELECT * FROM `tours` WHERE `id`=' . $tourId;
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -35,7 +37,7 @@ if ($pages == 'tour-page') {
       $exclude = nl2br($row['exclude']);
       $img = $row['img'];
     }
-    $sql = "SELECT * FROM `tour_details` WHERE `tourId`='$tourId' ORDER BY `weight` ASC";
+    $sql = 'SELECT * FROM `tour_details` WHERE `tourId`=' . $tourId . ' ORDER BY `weight` ASC';
     $result = mysqli_query($conn, $sql);
     $tourDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -44,16 +46,19 @@ if ($pages == 'tour-page') {
         'description' => $row['description'],
       );
     }
+
   } else {
     header('location: index.php');
     exit;
   }
+
+  // ------------------------------------------------- ARMENIA PAGE
 } elseif ($pages == 'armenia-page') {
 
   // get id
   $armeniaId = $_GET['armenia-id'];
   // get data
-  $sql = "SELECT title, img, description_a FROM `armenia` WHERE `id`='$armeniaId'";
+  $sql = 'SELECT title, img, description_a FROM `armenia` WHERE `id`=' . $armeniaId;
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -63,7 +68,7 @@ if ($pages == 'tour-page') {
       $description = nl2br($row['description_a']);
       $img = $row['img'];
     }
-    $sql = "SELECT * FROM `armenia_details` WHERE `armeniaId`='$armeniaId' ORDER BY `weight` ASC";
+    $sql = 'SELECT * FROM `armenia_details` WHERE `armeniaId`=' . $armeniaId . ' ORDER BY `weight` ASC';
     $result = mysqli_query($conn, $sql);
     $armeniaDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -76,13 +81,14 @@ if ($pages == 'tour-page') {
     header('location: index.php');
     exit;
   }
-
+  
+// ------------------------------------------------- BLOG PAGE
 } elseif ($pages == 'blog-page') {
 
   // get id
   $blogId = $_GET['blog-id'];
   // get data
-  $sql = "SELECT * FROM `blog` WHERE `id`='$blogId'";
+  $sql = 'SELECT * FROM `blog` WHERE `id`=' . $blogId;
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -92,7 +98,7 @@ if ($pages == 'tour-page') {
       $description = nl2br($row['describ']);
       $img = $row['img'];
     }
-    $sql = "SELECT * FROM `blog_details` WHERE `blogId`='$blogId' ORDER BY `weight` ASC";
+    $sql = 'SELECT * FROM `blog_details` WHERE `blogId`=' . $blogId . ' ORDER BY `weight` ASC';
     $result = mysqli_query($conn, $sql);
     $blogDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -108,7 +114,7 @@ if ($pages == 'tour-page') {
   }
 
 } else {
-  $sql = "SELECT title, subtitle, header FROM `pages` WHERE `name`='$pages'";
+  $sql = 'SELECT title, subtitle, header FROM `pages` WHERE `name`=' . $pages;
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -128,12 +134,11 @@ if ($pages == 'tour-page') {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Hello there">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>ASMA | <?= $title ?></title>
+  <title>ASMA | Control Panel</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
   <!-- Gallery-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
   <!-- Google font-->
@@ -144,19 +149,17 @@ if ($pages == 'tour-page') {
 </head>
 
 <body>
+
+<!-- Changing background image height "vh" -->
 <?php
 $bg = $pages == 'home' ? '100vh' : '45vh';
 $headerPos = $pages == 'home' ? '50%' : '20%';
 ?>
-
 <!-- Header Section -->
 <section style="height: <?= $bg ?> ;
         background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url(src/img/main/header.png);
-        background-position: center;
-        background-size: cover;
-        background-attachment:
-        fixed;" class="<?php echo $pages ?>" id="header">
+        url(../src/img/main/header.png);"
+        class="<?php echo $pages ?>" id="header">
   <div class="<?php echo $pages ?> container text-center">
     <div style="top: <?= $headerPos ?>" class="<?php echo $pages ?> main-text-box">
       <h1 class="<?php echo $pages ?> text-white"><?php echo $header ?></h1>
@@ -164,6 +167,7 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
     </div>
   </div>
 
+<!-- Scroll btn in home page -->
   <div class="scroll-btn">
     <div class="scroll-bar">
       <a href="#content"><span></span></a>
@@ -208,12 +212,15 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
     </nav>
   </div>
 
+<!-- Current page nav bar -->
   <style>
     .nav-link.<?php echo $pages ?> {
       border-bottom: 2px solid #2AC506 !important;
       color: #2AC506 !important;
     }
   </style>
+
+  <!-- PHP include -->
   <div id="content"></div>
   <?php
   include_once 'src/main-pages/' . $pages . '.php';
