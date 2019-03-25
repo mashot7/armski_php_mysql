@@ -107,6 +107,7 @@ if ($pages == 'tour-page') {
     exit;
   }
 
+  // OTHER PAGES
 } else {
   $sql = "SELECT title, subtitle, header FROM `pages` WHERE `name`='$pages'";
   $result = mysqli_query($conn, $sql);
@@ -175,7 +176,7 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
 <section class="user-info">
   <div class="nav-bar">
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#header"><img src="src/img/main/logo.png" alt=""/></a>
+      <a class="navbar-brand" href="index.php"><img src="src/img/main/logo.png" alt=""/></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>

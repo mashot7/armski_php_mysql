@@ -14,7 +14,7 @@ if ($pages == 'tour-page') {
   // get id
   $tourId = $_GET['tour-id'];
   // get data
-  $sql = 'SELECT * FROM `tours` WHERE `id`=' . $tourId;
+  $sql = "SELECT * FROM `tours` WHERE `id`= '$tourId'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -37,7 +37,7 @@ if ($pages == 'tour-page') {
       $exclude = nl2br($row['exclude']);
       $img = $row['img'];
     }
-    $sql = 'SELECT * FROM `tour_details` WHERE `tourId`=' . $tourId . ' ORDER BY `weight` ASC';
+    $sql = "SELECT * FROM `tour_details` WHERE `tourId`='$tourId' ORDER BY `weight` ASC";
     $result = mysqli_query($conn, $sql);
     $tourDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -58,7 +58,7 @@ if ($pages == 'tour-page') {
   // get id
   $armeniaId = $_GET['armenia-id'];
   // get data
-  $sql = 'SELECT title, img, description_a FROM `armenia` WHERE `id`=' . $armeniaId;
+  $sql = "SELECT title, img, description_a FROM `armenia` WHERE `id`='$armeniaId'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -68,7 +68,7 @@ if ($pages == 'tour-page') {
       $description = nl2br($row['description_a']);
       $img = $row['img'];
     }
-    $sql = 'SELECT * FROM `armenia_details` WHERE `armeniaId`=' . $armeniaId . ' ORDER BY `weight` ASC';
+    $sql = "SELECT * FROM `armenia_details` WHERE `armeniaId`='$armeniaId' ORDER BY `weight` ASC";
     $result = mysqli_query($conn, $sql);
     $armeniaDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -88,7 +88,7 @@ if ($pages == 'tour-page') {
   // get id
   $blogId = $_GET['blog-id'];
   // get data
-  $sql = 'SELECT * FROM `blog` WHERE `id`=' . $blogId;
+  $sql = "SELECT * FROM `blog` WHERE `id`='$blogId'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -98,7 +98,7 @@ if ($pages == 'tour-page') {
       $description = nl2br($row['describ']);
       $img = $row['img'];
     }
-    $sql = 'SELECT * FROM `blog_details` WHERE `blogId`=' . $blogId . ' ORDER BY `weight` ASC';
+    $sql = "SELECT * FROM `blog_details` WHERE `blogId`= '$blogId' ORDER BY `weight` ASC";
     $result = mysqli_query($conn, $sql);
     $blogDetails = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -114,7 +114,7 @@ if ($pages == 'tour-page') {
   }
 
 } else {
-  $sql = 'SELECT title, subtitle, header FROM `pages` WHERE `name`=' . $pages;
+  $sql = "SELECT title, subtitle, header FROM `pages` WHERE `name`= '$pages'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -158,7 +158,10 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
 <!-- Header Section -->
 <section style="height: <?= $bg ?> ;
         background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url(../src/img/main/header.png);"
+        url(../src/img/main/header.png);
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;"
         class="<?php echo $pages ?>" id="header">
   <div class="<?php echo $pages ?> container text-center">
     <div style="top: <?= $headerPos ?>" class="<?php echo $pages ?> main-text-box">
@@ -179,7 +182,7 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
 <section class="user-info">
   <div class="nav-bar">
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#header"><img src="src/img/main/logo.png" alt=""/></a>
+      <a class="navbar-brand" href="index.php"><img src="../src/img/main/logo.png" alt=""/></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -221,14 +224,12 @@ $headerPos = $pages == 'home' ? '50%' : '20%';
   </style>
 
   <!-- PHP include -->
-  <div id="content"></div>
   <?php
   include_once 'src/main-pages/' . $pages . '.php';
   ?>
   <div class="container">
-    <hr>
-
-  </div>
+  <hr>
+</div>
   <!-- --------------------------------- footer --------------------------------- -->
   <footer>
     <div class="row justify-content-sm-center">

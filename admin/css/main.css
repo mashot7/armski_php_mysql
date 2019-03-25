@@ -1,8 +1,8 @@
 * {
     box-sizing: border-box !important;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     padding: 0;
     background: #f5f5f5 !important;
@@ -11,28 +11,28 @@
     font-weight: 400;
     line-height: 1.5;
     color: #888;
-  }
-  
-  /* separate pages */
-  .tour-media-wrapper img.img-fluid {
+}
+
+/* separate pages */
+.tour-media-wrapper img.img-fluid {
     max-width: 630px !important;
-  }
-  
-  /* --------------------------------- Header --------------------------------- */
-  section#header {
+}
+
+/* --------------------------------- Header --------------------------------- */
+section#header {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-  } 
-  
-  .main-text-box {
+}
+
+.main-text-box {
     position: absolute;
     left: 10px;
     top: 50%;
     padding: 10px;
-  }
-  
-  .main-text-box h1 {
+}
+
+.main-text-box h1 {
     color: #fff;
     margin: 10px;
     text-align: left;
@@ -40,29 +40,29 @@
     font-size: 36px;
     line-height: 1.3;
     text-align: left;
-  }
-  
-  .main-text-box p {
+}
+
+.main-text-box p {
     font-size: 17px;
     line-height: 1.5;
     text-align: left;
-  }
-  
-  @media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) {
     .main-text-box h1 {
-      line-height: 1.2;
-      font-size: 60px;
+        line-height: 1.2;
+        font-size: 60px;
     }
-  
+
     .main-text-box p {
-      line-height: 1.27273;
-      font-size: 22px;
+        line-height: 1.27273;
+        font-size: 22px;
     }
-  }
-  
-  /* --------------------------------- scroll button --------------------------------- */
-  
-  .scroll-btn {
+}
+
+/* --------------------------------- scroll button --------------------------------- */
+
+.scroll-btn {
     bottom: 15px;
     position: absolute;
     left: 50%;
@@ -71,41 +71,41 @@
     padding: 10px 10px 20px;
     border-radius: 30px;
     display: none;
-  }
-  
-  .home .scroll-btn {
+}
+
+.home .scroll-btn {
     display: block;
-  }
-  
-  .scroll-bar span {
+}
+
+.scroll-bar span {
     border: 2px solid #fff;
     font-size: 10px;
     border-radius: 30px;
-  }
-  
-  .scroll-bar {
+}
+
+.scroll-bar {
     animation: mover 1s infinite;
-  }
-  
-  @keyframes mover {
+}
+
+@keyframes mover {
     0% {
-      transform: translateY(0px);
+        transform: translateY(0px);
     }
-  
+
     100% {
-      transform: translateY(10px);
+        transform: translateY(10px);
     }
-  }
-  
-  /* --------------------------------- navbar --------------------------------- */
-  
-  .nav-bar {
+}
+
+/* --------------------------------- navbar --------------------------------- */
+
+.nav-bar {
     top: 0;
     position: sticky;
     z-index: 2;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     background: #1e8bc3;
     border-bottom: 1px solid #ffffff;
     /* 
@@ -114,103 +114,103 @@
       rgba(26, 102, 149, 1),
       rgba(51, 119, 162, 1)
     ); */
-  }
-  
-  .navbar-brand img {
+}
+
+.navbar-brand img {
     height: 50px;
-  }
-  
-  .nav-bar .fa-bars {
+}
+
+.nav-bar .fa-bars {
     font-size: 35px;
     color: #fff;
-  }
-  
-  .navbar-toggler {
+}
+
+.navbar-toggler {
     outline: none !important;
-  }
-  
-  .navbar-nav {
+}
+
+.navbar-nav {
     float: right;
     text-align: right;
-  }
-  
-  .nav-link {
+}
+
+.nav-link {
     color: #fff !important;
     padding-bottom: 2px !important;
-  }
-  
-  .nav-link:hover {
+}
+
+.nav-link:hover {
     color: #332f2d !important;
-  }
-  
-  li.active a {
+}
+
+li.active a {
     color: #6caed5 !important;
-  }
-  
-  /* --------------------------------- Best Offers --------------------------------- */
-  
-  .container {
+}
+
+/* --------------------------------- Best Offers --------------------------------- */
+
+.container {
     padding-top: 70px;
-  }
-  
-  .best-offers {
+}
+
+.best-offers {
     text-align: center;
-  }
-  
-  .best-offers h3 {
+}
+
+.best-offers h3 {
     line-height: 1.38889;
     font-size: 36px;
-  }
-  
-  .best-offers p {
+}
+
+.best-offers p {
     margin-bottom: 50px;
-  }
-  
-  .col-md-5.col-lg-4 {
+}
+
+.col-md-5.col-lg-4 {
     margin-bottom: 30px;
-  }
-  
-  /* Image card */
-  
-  .card {
+}
+
+/* Image card */
+
+.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: auto;
     text-align: center;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  }
-  
-  a .img-fluid {
+}
+
+a .img-fluid {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-  }
-  
-  .cardHeader {
+}
+
+.cardHeader {
     text-align: left;
     margin-bottom: 25px;
     margin-top: 10px;
-  }
-  
-  .cardHeader a {
+}
+
+.cardHeader a {
     line-height: 1.5;
     color: #000;
     font-size: 18px;
     font-weight: 900;
     text-align: left;
-  }
-  
-  .cardHeader a:hover {
+}
+
+.cardHeader a:hover {
     text-decoration: none;
     line-height: 1.5;
     font-size: 18px;
     font-weight: 900;
     text-align: left;
     color: #383838;
-  }
-  
-  .pull-left a {
+}
+
+.pull-left a {
     font-family: "Lato", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     color: #fff;
@@ -222,28 +222,27 @@
     background: #1e8bc3;
     border-bottom: 2px solid black;
     /* float: left; */
-  }
-  
-  .pull-left a:hover {
+}
+
+.pull-left a:hover {
     text-decoration: none;
     color: #b0b0b0;
     background: #094563;
-  }
-  
-  .pull-right p {
+}
+
+.pull-right p {
     font-size: 24px;
     line-height: 1;
-  }
-  
-  .box-offer-caption ul li {
+}
+
+.box-offer-caption ul li {
     color: #aaa;
     font-size: 14px;
     display: inline;
-    float: left;
     margin-right: 15px;
-  }
-  
-  .test-after:after {
+}
+
+.test-after:after {
     content: "";
     background: #fff;
     display: inline-block;
@@ -255,9 +254,9 @@
     width: 1px;
     height: 1px;
     z-index: 1;
-  }
-  
-  a.button {
+}
+
+a.button {
     margin-top: 50px;
     color: #fff;
     background: #1e8bc3;
@@ -271,233 +270,172 @@
     font-weight: 900;
     text-align: center;
     border: 1px solid transparent;
-  }
-  
-  a.button:hover {
+}
+
+a.button:hover {
     color: #fff;
     text-decoration: none;
     background: #094563;
-  }
-  
-  /* Find your travel */
-  
-  .findYourTravel {
+}
+
+/* Find your travel */
+
+.findYourTravel {
     position: relative;
     margin-top: 50px;
     height: 70vh;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../../src/img/main/header.png);
+        url(../../src/img/main/header.png);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-  }
-  
-  .findYourTravel .col-md-10 {
+}
+
+.findYourTravel .col-md-10 {
     position: abolute;
     float: none;
     top: 80px;
     margin: 0 auto;
-  }
-  
-  .findYourTravel .col-md-10 .btn {
+}
+
+.findYourTravel .col-md-10 .btn {
     float: right;
-  }
-  
-  .findYourTravel .col-md-10 h2 {
+}
+
+.findYourTravel .col-md-10 h2 {
     font-size: 30px;
     line-height: 1.4;
-  }
-  
-  @media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) {
     .findYourTravel .col-md-10 h2 {
-      line-height: 1.25;
-      font-size: 48px;
+        line-height: 1.25;
+        font-size: 48px;
     }
-  
+
     .findYourTravel .col-md-10 {
-      position: abolute;
-      float: none;
-      top: 80px;
-      text-align: center;
+        position: abolute;
+        float: none;
+        top: 80px;
+        text-align: center;
     }
-  }
-  
-  @media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) {
     .findYourTravel .col-md-10 {
-      position: abolute;
-      float: right;
-      top: 80px;
-      text-align: right;
+        position: abolute;
+        float: right;
+        top: 80px;
+        text-align: right;
     }
-  }
-  
-  /* --------------------------------- ABOUT --------------------------------- */
-  
-  /* --------------------------------- RESUME --------------------------------- */
-  
-  /* --------------------------------- CONTACT --------------------------------- */
-  
-  /* --------------------------------- footer --------------------------------- */
-  footer {
+}
+
+/* --------------------------------- ABOUT --------------------------------- */
+
+/* --------------------------------- CONTACT --------------------------------- */
+
+/* --------------------------------- footer --------------------------------- */
+footer {
     margin-top: 50px;
     background: #383c3f;
     overflow: hidden;
     color: #fff;
-  }
-  
-  .text-big {
+}
+
+.text-big {
     font-weight: 400;
     line-height: 1.5;
     font-size: 18px;
     font-family: "Lato", Helvetica, Arial, sans-serif !important;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     color: #fff;
-  }
-  
-  /* --------------------------------- tours --------------------------------- */
-  .tours#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.tours {
+}
+
+/* --------------------------------- tours --------------------------------- */
+h1.tours {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .tours.main-text-box {
+}
+
+.tours.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- armenia --------------------------------- */
-  
-  .armenia#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.armenia {
+}
+
+/* --------------------------------- armenia --------------------------------- */
+h1.armenia {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .armenia.main-text-box {
+}
+
+.armenia.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- gallery --------------------------------- */
-  
-  .gallery#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.gallery {
+}
+
+/* --------------------------------- gallery --------------------------------- */
+W h1.gallery {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .gallery.main-text-box {
+}
+
+.gallery.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- videos --------------------------------- */
-  
-  .videos#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.videos {
+}
+
+/* --------------------------------- videos --------------------------------- */
+h1.videos {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .videos.main-text-box {
+}
+
+.videos.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- blog --------------------------------- */
-  
-  .blog#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.blog {
+}
+
+/* --------------------------------- blog --------------------------------- */
+h1.blog {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .blog.main-text-box {
+}
+
+.blog.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- about --------------------------------- */
-  
-  .about#header {
-    /* height: 45vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url(../src/img/main/header.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; */
-  }
-  
-  h1.about {
+}
+
+/* --------------------------------- about --------------------------------- */
+h1.about {
     line-height: 1.2;
     font-size: 60px;
-  }
-  
-  .about.main-text-box {
+}
+
+.about.main-text-box {
     position: absolute;
     top: 20%;
     padding: 10px;
-  }
-  
-  /* --------------------------------- tour page --------------------------------- */
-  
-  /* Style the tab */
-  .tab {
+}
+
+/* --------------------------------- tour page --------------------------------- */
+
+/* Style the tab */
+.tab {
     overflow: hidden;
     /*border: 1px solid #ccc;*/
     /*background-color: #f1f1f1;*/
-  }
-  
-  /* Style the buttons that are used to open the tab content */
-  .tab button {
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
     background-color: inherit;
     float: left;
     border: none;
@@ -505,25 +443,25 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
     background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
     background-color: #ccc;
-  }
-  
-  .tab button:focus {
+}
+
+.tab button:focus {
     outline: none !important;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
+}
+
+/* Style the tab content */
+.tabcontent {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
-  }
+}

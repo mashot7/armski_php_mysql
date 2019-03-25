@@ -27,12 +27,12 @@
                     </div>
                     <div class="box-offer-caption p-3">
                         <div class="cardHeader">
-                            <a href="?pages=tour-page">
+                            <a href="?pages=tour-page&&tour-id=<?php echo $tourId ?>">
                                 <?php echo $name ?>
                             </a>
                         </div>
                         <div class="pull-left">
-                            <a href="?pages=tour-page">
+                            <a href="?pages=tour-page&&tour-id=<?php echo $tourId ?>">
                                 Book Now!
                             </a>
                         </div>
