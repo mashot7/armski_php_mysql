@@ -2,18 +2,18 @@
 
   <div class="d-flex ">
     <div class="p-4 bg-white col-md-12 col-lg-8">
-      <h1><?= $header ?></h1>
+      <h1><textarea class="form-control" rows="1" id="comment" name="text"><?= $header ?></textarea></h1>
       <div class="tour-media-wrapper mb-4">
         <img class="mt-3 img-fluid" src="<?= $img ?>">
       </div>
       <div style="background: #f5f5f5;" class=" tour-details ">
-        <i class="fa fa-hourglass-half"></i> <span>Duration: <?= $duration ?> </span><br>
-        <i class="fa fa-location-arrow"></i> <span>Location: </span><?= $location ?> <br>
+        <i class="fa fa-hourglass-half"></i> <span>Duration: </span> <?= $duration ?><br>
+        <i class="fa fa-location-arrow"></i> <span>Location: </span> <?= $location ?><br>
         <i class="fa fa-money"></i> <span>Price: </span>&euro; <?= $price ?><br>
       </div>
 
       <div class="mt-3" style="max-width: 630px; text-align: justify;">
-        <p><span><?= $descr ?></span></p>
+        <p><textarea class="form-control" rows="5" name="duration"><?= $descr ?></textarea></p>
       </div>
 
       <div style="max-width: 630px;">
@@ -21,29 +21,37 @@
           <button class="tablinks active" onclick="openCity(event, 'overview')">Overview</button>
           <button class="tablinks" onclick="openCity(event, 'packageDetails')">Package Details</button>
         </div>
+        <!-- OVERVIEW CONTENT -->
         <div style="display: block;" id="overview" class="tabcontent p-4">
-          <strong>Duration: </strong> <span> <?= $duration ?> </span> <br>
-          <strong>Beginning: </strong> <span> <?= $begin ?></span><br>
-          <strong>Ending: </strong><span><?= $end ?></span><br>
-          <strong>Best season: </strong><span><?= $season ?></span><br>
-          <strong>Location: </strong><span><?= $location ?></span><br>
-          <strong>Price: </strong><span>&euro;<?= $price ?></span><br>
-          <strong>Accommodation: </strong><span><?= $accom ?></span><br>
-          <strong>Food: </strong><span><?= $food ?></span><br>
-          <strong>Mode of travel: </strong><span><?= $travelMod ?></span><br>
-          <strong>Number of people: </strong><span><?= $peopleNum ?></span><br>
-          <strong>Included: </strong><span><?= $include ?></span><br>
-          <strong>Excluded: </strong><span><?= $exclude ?></span><br>
+          <form action="conf.php?pages=tour-page&section=overview&page-id=<?=$tourId?>&cmd=edit_page" method="post">
+            <strong>Duration: </strong> <textarea class="form-control" rows="1" name="duration"> <?= $duration ?> </textarea> <br>
+            <strong>Beginning: </strong> <textarea class="form-control" rows="1" name="begin"> <?= $begin ?></textarea><br>
+            <strong>Ending: </strong><textarea class="form-control" rows="1" name="end"><?= $end ?></textarea><br>
+            <strong>Best season: </strong><textarea class="form-control" rows="1" name="season"><?= $season ?></textarea><br>
+            <strong>Location: </strong><textarea class="form-control" rows="1" name="location"><?= $location ?></textarea><br>
+            <strong>Price: </strong><textarea class="form-control" rows="1" name="price"><?= $price ?></textarea><br>
+            <strong>Accommodation: </strong><textarea class="form-control" rows="1" name="accom"><?= $accom ?></textarea><br>
+            <strong>Food: </strong><textarea class="form-control" rows="1" name="food"><?= $food ?></textarea><br>
+            <strong>Mode of travel: </strong><textarea class="form-control" rows="1" name="travelMod"><?= $travelMod ?></textarea><br>
+            <strong>Number of people: </strong><textarea class="form-control" rows="1" name="peopleNum"><?= $peopleNum ?></textarea><br>
+            <strong>Included: </strong><textarea class="form-control" rows="5" name="include"><?= $include ?></textarea><br>
+            <strong>Excluded: </strong><textarea class="form-control" rows="1" name="exclude"><?= $exclude ?></textarea><br>
+            <button type="submit" class="button">SAVE</button>
+          </form>
+          
 
         </div>
-
+        <!-- PACKAGE DETAILS CONTENT -->
         <div id="packageDetails" class="tabcontent p-4">
           <?php
           foreach ($tourDetails as $tourDetail) {
             ?>
-            <strong> <?= $tourDetail['title'] ?></strong><br><br>
-            <span><?= $tourDetail['description'] ?></span> <br>
-            <hr>
+            <form id="details" action="conf.php?pages=tour-page&section=details&page-id=<?=$tourId?>&content-id=<?=$tourDetail['content-id']?>&cmd=edit_page" method="post">
+              <textarea class="form-control" rows="2" name="title"> <?= $tourDetail['title'] ?></textarea><br><br>
+              <textarea class="form-control" rows="5" name="description"><?= $tourDetail['description'] ?></textarea> <br>
+              <button class="button" id="sub" type="submit">SAVE</button>
+            </form>
+            <span id="result"></span>
             <?php
           }
           ?>
@@ -77,34 +85,29 @@
       <!-- Gallery -->
       <div style="max-width: 630px;">
         <div class="container gallery-container">
-
-          <h1 class="text-center">Bootstrap 3 Gallery</h1>
-
-          <p class="page-description text-center">Grid Layout With Zoom Effect</p>
-
           <div class="tz-gallery">
 
             <div class="row mb-3">
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="assets\gallery\thum">
-                    <img src="images/park.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08787.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08787.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="images/benches.jpg">
-                    <img src="images/benches.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08296.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08296.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="images/bridge.jpg">
-                    <img src="images/bridge.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08283.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08283.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>
@@ -112,24 +115,24 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="images/coast.jpg">
-                    <img src="images/coast.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08280.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08280.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="images/rails.jpg">
-                    <img src="images/rails.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08274.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08274.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="card">
-                  <a class="lightbox" href="images/rocks.jpg">
-                    <img src="images/rocks.jpg" alt="Park" class="card-img-top">
+                  <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08278.jpg">
+                    <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08278.jpg" alt="Park" class="card-img-top">
                   </a>
                 </div>
               </div>

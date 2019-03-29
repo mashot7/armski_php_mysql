@@ -1,9 +1,7 @@
 <?php
-$sqlBlog = mysqli_query($conn, "SELECT * FROM `blog`");
-if (mysqli_num_rows($sqlBlog) > 0) {}
-else {
-  echo "0 results";
-}
+$sqlBlog = "SELECT * FROM `blog`";
+$resultBlog = $conn->query($sqlBlog);
+
 ?>
 <!-- --------------------------------- Container --------------------------------- -->
 <div class="container">
@@ -14,23 +12,24 @@ else {
         <p class="text-center">Check out our Blog</p>
         <div class="row text-center">
             <?php
-               while ($rowBlog = mysqli_fetch_assoc($sqlBlog)) {
-                $name = $rowBlog['name'];
-                $blogId = $rowBlog['id'];
-                $header = $rowBlog['header'];
-                $title = $paragraph = "";
-                $imgthumb = $rowBlog['imgthumb']
-        ?>
+            if ($resultBlog->num_rows > 0) {
+                while ($rowBlog = $resultBlog->fetch_assoc()) {
+                    $name = $rowBlog['name'];
+                    $blogId = $rowBlog['id'];
+                    $header = $rowBlog['header'];
+                    $title = $paragraph = "";
+                    $imgthumb = $rowBlog['imgthumb']
+                    ?>
             <div class="col-sm-12 col-md-5 col-lg-4">
                 <div class="card">
                     <div class="box-offer-img-wrap">
-                        <a href="?pages=blog-page&&blog-id=<?= $blogId?>">
-                            <img class="img-fluid" src="<?= $imgthumb?>" alt="Denim Jeans">
+                        <a href="?pages=blog-page&&blog-id=<?= $blogId ?>">
+                            <img class="img-fluid" src="<?= $imgthumb ?>" alt="Denim Jeans">
                         </a>
                     </div>
                     <div class="box-offer-caption p-3">
                         <div class="cardHeader">
-                            <a href="?pages=blog-page&&blog-id=<?= $blogId?>">
+                            <a href="?pages=blog-page&&blog-id=<?= $blogId ?>">
                                 <?= $header ?>
                             </a>
                         </div>
@@ -38,8 +37,10 @@ else {
                 </div>
             </div>
             <?php
-            }
-        ?>
+
+        }
+    }
+    ?>
         </div>
     </div>
-</div>
+</div> 

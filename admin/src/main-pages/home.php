@@ -6,18 +6,16 @@
         <div class="row text-center">
             <?php
             $sqlTour = "SELECT * FROM `tours`";
-            $resultTour = mysqli_query($conn, $sqlTour);
-            if (mysqli_num_rows($resultTour) > 0) {} else {
-                echo "0 results";
-            }
-            while ($rowTour = mysqli_fetch_assoc($resultTour)) {
-                $name = $rowTour['name'];
-                $imgTemp = $rowTour['img-temp'];
-                $price = $rowTour['price'];
-                $tourId = $rowTour['id'];
-                $header = $rowTour['name'];
-                $paragraph = "";
-                ?>
+            $resultTour = $conn->query($sqlTour);
+            if ($resultTour->num_rows > 0) {
+                while ($rowTour = $resultTour->fetch_assoc()) {
+                    $name = $rowTour['name'];
+                    $imgTemp = $rowTour['img-temp'];
+                    $price = $rowTour['price'];
+                    $tourId = $rowTour['id'];
+                    $header = $rowTour['name'];
+                    $paragraph = "";
+                    ?>
             <div class="col-sm-12 col-md-5 col-lg-4">
                 <div class="card">
                     <div class="box-offer-img-wrap">
@@ -43,8 +41,10 @@
                 </div>
             </div>
             <?php
-            }
-            ?>
+
+        }
+    }
+    ?>
         </div>
         <a class="button button-primary" href="index.php?mainPage=tours">VIEW ALL TOURS</a>
     </div>
@@ -56,4 +56,4 @@
         <h2 style="color: white">Find Travel Perfection With the Professionalism of Experts</h2>
         <a class="button button-primary" href="index.php?mainPage=tours">FIND YOUR PERFECT TOUR</a>
     </div>
-</div>
+</div> 

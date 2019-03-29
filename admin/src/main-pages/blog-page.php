@@ -1,20 +1,4 @@
 <div class="container">
-
-    <style>
-    @media only screen and (min-width: 992px) {
-        .container .d-flex {
-            display: flex;
-            justify-content: space-between;
-        }
-    }
-
-    @media only screen and (max-width: 992px) {
-        .container .d-flex {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-    </style>
     <div class="d-flex">
         <div class="p-4 bg-white col-md-12 col-lg-8  ">
             <h1><?=$header ?></h1>
@@ -35,7 +19,7 @@
             ?>
             </div>
 
-            <!-- Sidebar -->
+        <!-- Sidebar -->
         </div>
         <div class="p-4 bg-white col-md-12 col-lg-4">
             There is a sidebar
@@ -43,7 +27,19 @@
     </div>
 
     <style>
-    .tour-media-wrapper {}
+    @media only screen and (min-width: 992px) {
+        .container .d-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .container .d-flex {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 
     .tour-details {
         max-width: 620px;
