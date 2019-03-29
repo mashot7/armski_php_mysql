@@ -18,7 +18,7 @@ if ($pages == 'tour-page') {
   if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-      $title = $header = $row['name'];
+      $title = $header = $row['title'];
       $subtitle = '';
       $meta_d = mb_substr($row['descr'], 0, 140);
       $price = $row['price'];
@@ -264,7 +264,7 @@ if ($pages == 'tour-page') {
         <script>
             baguetteBox.run('.tz-gallery');
         </script>
-        <script src="./script.js"></script>
+        <script src="./script/main.js"></script>
 </body>
 
 </html> 

@@ -1,4 +1,3 @@
-<!-- DB connection-->
 <?php
 $sqlTour = "SELECT * FROM `tours`";
 $resultTour = $conn->query($sqlTour);

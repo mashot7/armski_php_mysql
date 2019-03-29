@@ -20,7 +20,7 @@ if ($_GET['cmd'] == 'edit_page') {
             $include = trim($_POST['include']);
             $exclude = trim($_POST['exclude']);
             // UPDATE
-            $update = $conn->query("UPDATE `tours` SET `duration`='$duration',
+            $updateSql = "UPDATE `tours` SET `duration`='$duration',
             `location`='$location',
             `begin`='$begin',
             `end`='$end',
@@ -32,8 +32,8 @@ if ($_GET['cmd'] == 'edit_page') {
             `peopleNum`='$peopleNum',
             `include` = '$include',
             `exclude`='$exclude'
-            WHERE `id`='$tourId'");
-            if ($update) {
+            WHERE `id`='$tourId'";
+            if ($conn->query($updateSql) === true) {
                 header('location: index.php?pages=tour-page&tour-id=' . $tourId . '&result=1');
             } else {
                 header('location: index.php?pages=tour-page&tour-id=' . $tourId . '&result=0');
@@ -43,14 +43,35 @@ if ($_GET['cmd'] == 'edit_page') {
             $title = trim($_POST['title']);
             $description = trim($_POST['description']);
             // UPDATE
-            $update = $conn->query("UPDATE `tour_details` SET `title`='$title',
+            $updateSql = $conn->query("UPDATE `tour_details` SET `title`='$title',
             `description`='$description'
             WHERE `id`='$contentId'");
-            if ($update) {
-                header('location: index.php?pages=tour-page&tour-id=' . $tourId . '&result=1(tour-details)');
+            if ($conn->query($updateSql) === true) {
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
             } else {
-                header('location: index.php?pages=tour-page&tour-id=' . $tourId . '&result=0(tour-details)');
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
+            }
+        } elseif ($_GET['section'] == 'description') {
+            $description = trim($_POST['description']);
+            // UPDATE
+            $updateSql = $conn->query("UPDATE `tours` SET `descr`='$description' WHERE `id`='$tourId");
+            if ($conn->query($updateSql) === true) {
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
+            } else {
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
+            }
+        } elseif ($_GET['section'] == 'title') {
+            $title = trim($_POST['title']);
+            echo $title;
+            // UPDATE
+            $updateSql = $conn->query("UPDATE `tours` SET `title` = '$title' WHERE `tours`.`id` = '$tourId'");
+            if ($conn->query($updateSql) === true) {
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
+            } else {
+                header('location: index.php?pages=tour-page&tour-id=' . $tourId);
             }
         }
     }
 }
+echo 'Hello';
+ 
