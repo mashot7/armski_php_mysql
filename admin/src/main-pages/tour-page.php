@@ -93,64 +93,7 @@
             </script>
 
             <!-- Gallery -->
-            <div style="max-width: 630px;">
-                <div class="container gallery-container">
-                    <div class="tz-gallery">
 
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08787.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08787.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08296.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08296.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08283.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08283.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08280.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08280.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08274.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08274.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a class="lightbox" href="http://natoura.am/wp-content/uploads/2015/04/DSC08278.jpg">
-                                        <img src="http://natoura.am/wp-content/uploads/2015/04/DSC08278.jpg" alt="Park" class="card-img-top">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
             <!-- Sidebar -->
         </div>
