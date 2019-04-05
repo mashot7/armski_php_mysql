@@ -2,7 +2,7 @@
 $sqlTour = "SELECT * FROM `tours`";
 $resultTour = $conn->query($sqlTour);
 ?>
-
+<a href="?pages=add-tour">Add Tour</a>
 <div class="container">
     <div class="best-offers">
         <h3 class="text-center">Culture</h3>
@@ -10,14 +10,14 @@ $resultTour = $conn->query($sqlTour);
         <div class="row text-center">
             <?php
             if ($resultTour->num_rows > 0) {
-              while ($rowTour = $resultTour->fetch_assoc()) {
-                $name = $rowTour['name'];
-                $imgTemp = $rowTour['img-temp'];
-                $price = $rowTour['price'];
-                $tourId = $rowTour['id'];
-                $header = $rowTour['name'];
-                $paragraph = "";
-                ?>
+                while ($rowTour = $resultTour->fetch_assoc()) {
+                    $name = $rowTour['name'];
+                    $imgTemp = $rowTour['img-temp'];
+                    $price = $rowTour['price'];
+                    $tourId = $rowTour['id'];
+                    $header = $rowTour['name'];
+                    $paragraph = "";
+                    ?>
             <div class="col-sm-12 col-md-5 col-lg-4">
                 <div class="card">
                     <div class="box-offer-img-wrap">
@@ -44,9 +44,9 @@ $resultTour = $conn->query($sqlTour);
             </div>
             <?php
 
-          }
         }
-        ?>
+    }
+    ?>
         </div>
     </div>
     <div class="best-offers">
@@ -55,7 +55,7 @@ $resultTour = $conn->query($sqlTour);
         <div class="row text-center">
             <?php
             for ($i = 0; $i < 8; $i++) {
-              ?>
+                ?>
             <div class="col-sm-12 col-md-5 col-lg-4">
                 <div class="card">
                     <div class="box-offer-img-wrap">
@@ -82,8 +82,8 @@ $resultTour = $conn->query($sqlTour);
             </div>
             <?php
 
-          }
-          ?>
+        }
+        ?>
         </div>
     </div>
     <div class="best-offers">
@@ -92,7 +92,7 @@ $resultTour = $conn->query($sqlTour);
         <div class="row text-center">
             <?php
             for ($i = 0; $i < 7; $i++) {
-              ?>
+                ?>
             <div class="col-sm-12 col-md-5 col-lg-4">
                 <div class="card">
                     <div class="box-offer-img-wrap">
@@ -119,8 +119,8 @@ $resultTour = $conn->query($sqlTour);
             </div>
             <?php
 
-          }
-          ?>
+        }
+        ?>
         </div>
     </div>
 </div> 

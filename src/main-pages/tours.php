@@ -1,126 +1,78 @@
 <?php
-$sqlTour = "SELECT * FROM `tours`";
-$resultTour = $conn->query($sqlTour);
+/*
+$sqlCult = "SELECT * FROM `tours` WHERE `category`='Culture'";
+$sqlAdv = "SELECT * FROM `tours` WHERE `category`='Adventure'";
+$sqlSki = "SELECT * FROM `tours` WHERE `category`='Skiing'";
+$resultCult = $conn->query($sqlCult);
+$resultAdv = $conn->query($sqlAdv);
+$resultSki = $conn->query($sqlSki);*/
 ?>
 
 <div class="container">
-    <div class="best-offers">
+    <div id="Cul" class="best-offers">
         <h3 class="text-center">Culture</h3>
         <p class="text-center">Check out our culture tours</p>
-        <div class="row text-center">
-            <?php
-            if ($resultTour->num_rows > 0) {
-              while ($rowTour = $resultTour->fetch_assoc()) {
-                $name = $rowTour['name'];
-                $imgTemp = $rowTour['img-temp'];
-                $price = $rowTour['price'];
-                $tourId = $rowTour['id'];
-                $header = $rowTour['name'];
-                $paragraph = "";
-                ?>
-            <div class="col-sm-12 col-md-5 col-lg-4">
-                <div class="card">
-                    <div class="box-offer-img-wrap">
-                        <a href="?pages=tour-page&&tour-id=<?php echo $tourId ?>">
-                            <img class="img-fluid" src="<?php echo $imgTemp ?>" alt="Denim Jeans">
-                        </a>
-                    </div>
-                    <div class="box-offer-caption p-3">
-                        <div class="cardHeader">
-                            <a href="?pages=tour-page">
-                                <?php echo $name ?>
-                            </a>
-                        </div>
-                        <div class="pull-left">
-                            <a href="?pages=tour-page">
-                                Book Now!
-                            </a>
-                        </div>
-                        <div class="pull-right">
-                            <p>$<?php echo $price ?></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-
-          }
-        }
+        <?php
+        $per_pageCul = 6;
+        $sqlCul = "SELECT `id`, `title`, `img-temp`, `price`, `category` FROM `tours` WHERE `category`='Culture' ";
+        $resultCul = $conn-> query($sqlCul);
+        $countCul = $resultCul->num_rows;
+        $pagesCul = ceil($countCul/$per_pageCul);
         ?>
+        <div id="content_container0" class="row text-center"></div>
+        <hr>	
+        <div class="pagination">
+            <ul class="pagination"id="paginate0">
+            <?php		
+            for($i=1; $i<=$pagesCul; $i++)	{
+                echo '<li class="page-item" id="'.$i.'"><a href="#Cul" class="page-link">'.$i.'</a></li>';
+            }
+            ?>
+            </ul>
         </div>
     </div>
-    <div class="best-offers">
+    <div id="Ski" class="best-offers">
         <h3 class="text-center">Skiing</h3>
         <p class="text-center">Check out our skiing tours</p>
-        <div class="row text-center">
-            <?php
-            for ($i = 0; $i < 8; $i++) {
-              ?>
-            <div class="col-sm-12 col-md-5 col-lg-4">
-                <div class="card">
-                    <div class="box-offer-img-wrap">
-                        <a href="#">
-                            <img class="img-fluid" src="http://natoura.am/wp-content/uploads/2016/01/12788793_10208836140524540_1134342321_o-400x260.jpg" alt="Denim Jeans">
-                        </a>
-                    </div>
-                    <div class="box-offer-caption p-3">
-                        <div class="cardHeader">
-                            <a href="#">
-                                Trekking tour in Armenia (including Mount Aragats & Mount Azhdahak)
-                            </a>
-                        </div>
-                        <div class="pull-left">
-                            <a href="#">
-                                Book Now!
-                            </a>
-                        </div>
-                        <div class="pull-right">
-                            <p>$2000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-
-          }
-          ?>
+        <?php
+        $per_pageSki = 6;
+        $sqlSki = "SELECT `id`, `title`, `img-temp`, `price`, `category` FROM `tours` WHERE `category`='Skiing' ";
+        $resultSki = $conn-> query($sqlSki);
+        $countSki = $resultSki->num_rows;
+        $pagesSki = ceil($countSki/$per_pageSki);
+        ?>
+        <div id="content_container1" class="row text-center"></div>
+        <hr>	
+        <div class="pagination">
+            <ul class="pagination"id="paginate1">
+            <?php		
+            for($i=1; $i<=$pagesSki; $i++)	{
+                echo '<li class="page-item" id="'.$i.'"><a href="#Ski" class="page-link">'.$i.'</a></li>';
+            }
+            ?>
+            </ul>
         </div>
     </div>
-    <div class="best-offers">
+    <div class="best-offers" id="Adv">
         <h3 class="text-center">Adventure</h3>
         <p class="text-center">Check out our adventure tours</p>
-        <div class="row text-center">
-            <?php
-            for ($i = 0; $i < 7; $i++) {
-              ?>
-            <div class="col-sm-12 col-md-5 col-lg-4">
-                <div class="card">
-                    <div class="box-offer-img-wrap">
-                        <a href="#">
-                            <img class="img-fluid" src="http://natoura.am/wp-content/uploads/2015/04/DSC08920-400x260.jpg" alt="Denim Jeans">
-                        </a>
-                    </div>
-                    <div class="box-offer-caption p-3">
-                        <div class="cardHeader">
-                            <a href="#">
-                                Hiking Tour in Central and Northern Armenia
-                            </a>
-                        </div>
-                        <div class="pull-left">
-                            <a href="#">
-                                Book Now!
-                            </a>
-                        </div>
-                        <div class="pull-right">
-                            <p>$2000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-
-          }
-          ?>
+        <?php
+        $per_pageAdv = 6;
+        $sqlAdv = "SELECT `id`, `title`, `img-temp`, `price`, `category` FROM `tours` WHERE `category`='Adventure' ";
+        $resultAdv = $conn-> query($sqlAdv);
+        $countAdv = $resultAdv->num_rows;
+        $pagesAdv = ceil($countAdv/$per_pageAdv);
+        ?>
+        <div id="content_container2" class="row text-center"></div>
+        <hr>	
+        <div class="pagination">
+            <ul class="pagination"id="paginate2">
+            <?php		
+            for($i=1; $i<=$pagesAdv; $i++)	{
+                echo '<li class="page-item" id="'.$i.'"><a href="#Adv" class="page-link">'.$i.'</a></li>';
+            }
+            ?>
+            </ul>
         </div>
     </div>
-</div> 
+</div>

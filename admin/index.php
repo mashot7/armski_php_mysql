@@ -111,6 +111,9 @@ if ($pages == 'tour-page') {
     header('location: index.php');
     exit;
   }
+} elseif ($pages == 'add-tour') {
+  $title = $header = "Add tour";
+  $subtitle = '';
 } else {
   $sql = "SELECT title, subtitle, header FROM `pages` WHERE `name`= '$pages'";
   $result = $conn->query($sql);

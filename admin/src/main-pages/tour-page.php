@@ -51,22 +51,18 @@
                 <div id="packageDetails" class="tabcontent p-4">
                     <?php
                     foreach ($tourDetails as $tourDetail) {
-                      ?>
+                        ?>
                     <form id="details" action="conf.php?pages=tour-page&section=details&page-id=<?= $tourId ?>&content-id=<?= $tourDetail['content-id'] ?>&cmd=edit_page" method="post" onsubmit="return submitData(this)">
-                        <textarea class="form-control" rows="2" name="title"> <?= $tourDetail['title'] ?></textarea><br>
-                        <textarea class="form-control" rows="5" name="description"><?= $tourDetail['description'] ?></textarea> <br>
+                        <textarea class="form-control" rows="2" name="title"><?= trim($tourDetail['title']) ?> </textarea><br>
+                        <textarea class="form-control" rows="5" name="description"> <?= trim($tourDetail['description']) ?></textarea> <br>
                         <div class="d-flex flex-row-reverse"><button style="margin-top:0px; margin-bottom:15px;" class="button" id="sub" type="submit">SAVE</button></div>
                         <hr>
                     </form>
-                    <span id="result"></span>
                     <?php
 
-                  }
-                  ?>
-
-                    <div class="d-flex flex-row-reverse"><button style="margin-top:0px; margin-bottom:15px;" class="button" id="sub" type="submit">SAVE</button></div>
+                }
+                ?>
                 </div>
-
             </div>
 
             <script>
@@ -95,8 +91,9 @@
             <!-- Gallery -->
 
 
-            <!-- Sidebar -->
+
         </div>
+        <!-- Sidebar -->
         <div class="p-4 bg-white col-md-12 col-lg-4">
             There is a sidebar
         </div>

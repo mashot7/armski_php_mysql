@@ -1,5 +1,5 @@
 <?php
- // DB connection
+// DB connection
 require_once '../src/include/connection.php';
 
 // edit page content
@@ -72,6 +72,51 @@ if ($_GET['cmd'] == 'edit_page') {
             }
         }
     }
+} elseif ($_GET['cmd'] == 'add-page') {
+    if ($_GET['pages'] == 'add-tour') {
+
+        $tourTitle = $_POST['tour-title'];
+        $tourImg = $_POST['tour-img'];
+        $duration = $_POST['duration'];
+        $tourDescription = $_POST['tour-description'];
+        $begin = $_POST['begin'];
+        $end = $_POST['end'];
+        $season = $_POST['season'];
+        $location = $_POST['location'];
+        $price = $_POST['price'];
+        $accom = $_POST['accom'];
+        $food = $_POST['food'];
+        $travelMod = $_POST['travelMod'];
+        $peopleNum = $_POST['peopleNum'];
+        $include = $_POST['include'];
+        $exclude = $_POST['exclude'];
+        $category = $_POST['category'];
+
+        $sql = "INSERT INTO tours (id, title, img, price, duration, location, descr, begin, end, season, accom, food, travelMod, peopleNum, include, exclude, category)
+        VALUES (NULL, '$tourTitle', '$tourImg', '$price', '$duration', '$location', '$tourDescription', '$begin', '$end', '$season', '$accom', '$food', '$travelMod', '$peopleNum', '$include', '$exclude', '$category')";
+
+
+        if ($conn->query($sql) === true) {
+            $last_id = $conn->insert_id;
+            echo "New record created successfully. Last inserted ID is: " . $last_id;
+            $id = 0;
+            while (isset($_POST['title'][$id])) {
+                $title_details = $_POST['title'][$id];
+                $description_details = $_POST['description'][$id];
+                $weight_details = $_POST['weight'][$id];
+
+                $sqlDetails = "INSERT INTO tour_details (id, tourId, title, description, weight)
+                VALUES (NULL, '$last_id', '$title_details', '$description_details', '$weight_details')";
+
+                if ($conn->query($sqlDetails) === true) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sqlDetails . "<br>" . $conn->error;
+                }
+                $id++;
+            }
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
 }
-echo 'Hello';
- 

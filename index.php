@@ -253,14 +253,15 @@ if ($pages == 'tour-page') {
                 </div>
             </div>
         </footer>
-
         <!-- SMOOTH SCROLL -->
         <script src="script/smooth-scroll.js"></script>
         <script>
             var scroll = new SmoothScroll('a[href*="#"]');
         </script>
         <!-- Bootstrap script -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+       -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Gallery -->
@@ -268,6 +269,9 @@ if ($pages == 'tour-page') {
         <script>
             baguetteBox.run('.tz-gallery');
         </script>
+        
+        <!-- PAGINATION -->
+        <script src="script/ajax_pagination.js"></script>
 </body>
 
-< /html> 
+</html> 
